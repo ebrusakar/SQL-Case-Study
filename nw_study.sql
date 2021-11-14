@@ -1,5 +1,5 @@
 
---1a. What were Northwind’s top selling products? 
+--1a. What were Northwindâ€™s top selling products? 
 
 SELECT TOP (3) pro.ProductName, SUM(os.Subtotal) AS Total, SUM(ode.Quantity) AS Quantity
 FROM     Northwind.dbo.Orders AS o INNER JOIN
@@ -54,7 +54,9 @@ SELECT COUNT(o.OrderID) AS [Total Number of Orders], s.CompanyName
 FROM     Northwind.dbo.Orders AS o INNER JOIN
                   Northwind.dbo.Shippers AS s ON o.EmployeeID = s.ShipperID
 GROUP BY s.CompanyName
-ORDER BY [Total Number of Orders] DESC
+ORDER BY [Total Number of Orders] DESC;
+
+
 --5. How much did Northwind sell by each product category?
 
 CREATE VIEW [Product Categories] AS
@@ -117,9 +119,6 @@ FROM Northwind.dbo.Employees AS e Inner JOIN
 	) AS oo ON e.EmployeeID=oo.EmployeeID 
 GROUP BY [Quarter Rank],e.FirstName, e.LastName
 ORDER BY [Quarter Rank],[Total Quantity]  DESC;
-
-
-
 
   
 --7.Create a query that will return a message if the order has more products ordered than the in-stock. 
